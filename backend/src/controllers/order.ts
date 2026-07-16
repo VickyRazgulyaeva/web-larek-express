@@ -134,7 +134,7 @@ const createOrder = async (
     }
 
     // Успешный ответ
-    res.status(201).send({
+    res.send({
       id: randomUUID(),
       total: calculatedTotal,
     });
