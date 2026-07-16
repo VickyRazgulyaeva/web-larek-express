@@ -12,7 +12,11 @@ import {
   errorLogger,
 } from './middlewares/logger';
 
-const { PORT = 3000 } = process.env;
+// const { PORT = 3000 } = process.env;
+const {
+  PORT = 3000,
+  DB_ADDRESS = 'mongodb://127.0.0.1:27017/weblarek',
+} = process.env;
 
 const app = express();
 
@@ -32,7 +36,7 @@ app.use(errorLogger);
 app.use(errors());
 app.use(errorHandler);
 
-mongoose.connect('mongodb://127.0.0.1:27017/weblarek')
+mongoose.connect(DB_ADDRESS)
   .then(() => {
     console.log('Connected to MongoDB');
 
